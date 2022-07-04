@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+//Importaciones necesarias
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import React from "react";
+//Rutas de las paginas que estaran enlazadas
+import { Navbar } from "./navbar";
+import { Bienvenido } from "./paginas/Bienvenido";
+import { Estudiante } from "./paginas/Estudiante";
+import { Pokemons } from "./paginas/Pokemons";
+import { Pokemon } from "./paginas/Pokemon";
+//exportaciones, rutas con caracteristicas definidas
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Bienvenido />} />
+          <Route path="/pokemons" element={<Pokemons />} />
+          <Route path="/pokemon/:id" element={<Pokemon />} />
+          <Route path="/191508" element={<Estudiante />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
-
-export default App;
